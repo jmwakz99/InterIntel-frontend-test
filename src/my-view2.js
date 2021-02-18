@@ -12,6 +12,32 @@ import {LitElement, html, css } from 'lit-element';
 import './shared-styles.js';
 
 class MyView2 extends LitElement {
+  constructor(){
+    super()
+    this.items = [
+      {
+       item:"Tomatoes",
+       price: 230.66
+      },
+      {
+        item:"Potatoes",
+        price: 530.62
+       },
+       {
+        item:"Crisps",
+        price: 600.22
+       },
+       {
+        item:"Avocado",
+        price: 430.11
+       },
+       {
+        item:"Onions",
+        price: 330.55
+       }
+    ]
+
+  }
   static get styles () {
     return [
       css` 
@@ -112,30 +138,20 @@ class MyView2 extends LitElement {
        </p>
        <p class="receipt__date">20 January 2021</p>
      </header>
+   
      <dl class="receipt__list">
-       <div class="receipt__list-row">
-         <dt class="receipt__item">Tomatoes</dt>
-         <dd class="receipt__cost">kes200.99</dd>
-       </div>
-       <div class="receipt__list-row">
-         <dt class="receipt__item">Onions</dt>
-         <dd class="receipt__cost">kes40.50</dd>
-       </div>
-       <div class="receipt__list-row">
-         <dt class="receipt__item">Avocado</dt>
-         <dd class="receipt__cost">kes430.99</dd>
-       </div>
-       <div class="receipt__list-row">
-         <dt class="receipt__item">Crisps</dt>
-         <dd class="receipt__cost">kes500.99</dd>
-       </div>
-       <div class="receipt__list-row">
-         <dt class="receipt__item">Sweet Potatoes</dt>
-         <dd class="receipt__cost">kes250.59</dd>
-       </div>
+     ${this.items.map((item) => html`
+      <div class="receipt__list-row">
+        <dt class="receipt__item">${item.item}</dt>
+        <dd class="receipt__cost">kes${item.price}</dd>
+      </div>
+     
+     `)}
        <div class="receipt__list-row receipt__list-row--total">
          <dt class="receipt__item">Total</dt>
-         <dd class="receipt__cost">kes1423.07</dd>
+         <dd class="receipt__cost">kes${this.items.reduce((acc, cu) => {
+           return +acc.toFixed(2) + +cu.price.toFixed(2)
+          },0)}</dd>
        </div>
      </dl>
    </div>
