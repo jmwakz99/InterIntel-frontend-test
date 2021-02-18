@@ -14,17 +14,36 @@ import './shared-styles.js';
 class MyView3 extends LitElement {
   constructor(){
     super()
-    this.todos = []
+    this.todos = [],
+    this.dictionary = {
+      '34': 'thirty-four', 
+      '90': 'ninety',
+      '91': 'ninety-one',
+      '21': 'twenty-one',
+      '61': 'sixty-one', 
+      '9': 'nine',
+      '2': 'two', 
+      '6': 'six', 
+      '3': 'three',
+      '8': 'eight', 
+      '80': 'eighty', 
+      '81': 'eighty-one',
+      'Ninety-Nine': '99', 
+      'nine-hundred': '900'
+}
   }
   static get properties() {
     return {
-      todos: {type: Array}
+      todos: {type: Array},
+      dictionary: {type: Object}
+      
     
 
   }
 }
   firstUpdated(changedProperties) {
     super.firstUpdated(changedProperties);
+    // todos api call
     fetch(`https://jsonplaceholder.typicode.com/todos?_limit=5`).then(response => {
       return response.json()
 
@@ -34,6 +53,26 @@ class MyView3 extends LitElement {
     }).catch(error => {
       console.log(error)
     })
+
+    // sorting the dictionary
+    const unsortedDictionary = {...this.dictionary}
+
+    let sortedDictionary = {}
+    // loop over the dictionary, automatically the dictionary will be sorted in ascending order 
+    Object.entries(unsortedDictionary).forEach(([key, value]) =>{
+      // if the current property key is a string interchange
+      if(isNaN(key) === true){
+        sortedDictionary[value]= key
+      }else {
+        sortedDictionary[key] = value
+      }
+
+    } )
+    this.dictionary = sortedDictionary
+    console.log(this.dictionary)
+  
+    
+
     }
    render() {
      return html`
@@ -65,13 +104,30 @@ class MyView3 extends LitElement {
          </div>
         
         ` )}
+        <div class="column">
+        <h1 style="width"><span class="tag">Sorted Dictionary</span></h1>
+        <table class="table  is-bordered">
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>VALUE</th>
    
-       
-   
-        </div>
- 
+    </tr>
+  </thead>
 
-      </div>
+  <tbody>
+    ${Object.entries(this.dictionary).map(([key, value]) => html`
+    <tr>
+    <td>${key}</td>
+    <td>${value}</td>
+    </tr>
+    
+    `)}
+    </tbody>
+    </table>
+    </div>
+    </div>
+  </div>
        
  
      `;
