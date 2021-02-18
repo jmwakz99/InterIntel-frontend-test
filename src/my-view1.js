@@ -17,10 +17,6 @@ class MyView1 extends LitElement {
   static get styles () {
     return [
       css`
-      body{
-        background:#59ABE3;
-        margin:0
-      }
     .form{
       width:340px;
       height:440px;
