@@ -30,8 +30,12 @@ Converted the custom element called "my-view3" to a LitElement.Added lit element
 
 
 
+
 ## Project setup
 ```
 npm install
 npm start
 ```
+
+## Help
+if you face any problem please don't hesitate to reach me on my email: <a href="mailto:mwanjilajohnson@gmail.com">mwanjilajohnson@gmail.com</a>
