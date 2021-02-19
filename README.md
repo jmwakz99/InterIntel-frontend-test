@@ -1,87 +1,37 @@
-# InterIntel-frontend-test
-# Polymer App Toolbox - Starter Kit
+<h1 >MyApp</h1>
+<img src="./images/readme/my-app.png" width="100%">
 
-[![Build Status](https://travis-ci.org/Polymer/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/Polymer/polymer-starter-kit)
+<h2 align="center">All the views</h2>
 
-This template is a starting point for building apps using a drawer-based
-layout. The layout is provided by `app-layout` elements.
+## Description
 
-This template, along with the `polymer-cli` toolchain, also demonstrates use
-of the "PRPL pattern" This pattern allows fast first delivery and interaction with
-the content at the initial route requested by the user, along with fast subsequent
-navigation by pre-caching the remaining components required by the app and
-progressively loading them on-demand as the user navigates through the app.
+***
+<p align="center">
+<img src="https://media.giphy.com/media/87ZjrK6sFteoWJDJWZ/giphy.gif" width="80%"></p>
+<h2 align="center">View one</h2>
+<p align="center"><a href="https://github.com/jmwakz99/interintel-frontend-test/blob/main/src/my-view1.js">View source code</a></p>
 
-The PRPL pattern, in a nutshell:
+Converted the custom element called "my-view1" to a LitElement. I also created a form that captures user's name, email and phone number. Imported Bulma through cdn link and customized the inputs and buttons with bulma css. Wrote a javascript function that captures user information gotten from the inputs and displayed on both console and alert box.
 
-* **Push** components required for the initial route
-* **Render** initial route ASAP
-* **Pre-cache** components for remaining routes
-* **Lazy-load** and progressively upgrade next routes on-demand
 
-### Setup
+<p align="center">
+<img src="./images/readme/view-two.png" width="80%"></p>
+<h2 align="center">View two</h2>
+<p align="center"><a href="https://github.com/jmwakz99/interintel-frontend-test/blob/main/src/my-view2.js">View source code</a></p>
 
-##### Prerequisites
+Converted the custom element called "my-view2" to a LitElement and gave it a custom name of "my-element". I decided to create a shop receipt. Used plain css for styling. I also added some javascript functionality(looping over a list of items and displayed them on the receipt created and used javascript reduce() method to calculate the total value of the receipt).
 
-Install [Polymer CLI](https://github.com/Polymer/polymer-cli) using
-[npm](https://www.npmjs.com) (we assume you have pre-installed [node.js](https://nodejs.org)).
+<p align="center">
+<img src="./images/readme/view-three.png" width="80%"></p>
+<h2 align="center">View three</h2>
+<p align="center"><a href="https://github.com/jmwakz99/interintel-frontend-test/blob/main/src/my-view3.js">View source code</a></p>
 
-    npm install -g polymer-cli@next
+Converted the custom element called "my-view3" to a LitElement.Added lit element lifecycle hook method. Took advantage of this method where I decided to make api call to fetch todos and also added the logic for sorting the dictionary. Displayed the list of todos from the response using cards which I had created using Bulma css. Also displayed the sorted dictionary on the polymer interface alongside the todo list. 
 
-##### Initialize project from template
 
-    mkdir my-app
-    cd my-app
-    polymer init polymer-3-starter-kit
 
-### Start the development server
-
-This command serves the app at `http://127.0.0.1:8081` and provides basic URL
-routing for the app:
-
-    npm start
-
-### Build
-
-The `npm run build` command builds your Polymer application for production, using build configuration options provided by the command line or in your project's `polymer.json` file.
-
-You can configure your `polymer.json` file to create multiple builds. This is necessary if you will be serving different builds optimized for different browsers. You can define your own named builds, or use presets. See the documentation on [building your project for production](https://www.polymer-project.org/3.0/toolbox/build-for-production) for more information.
-
-The Polymer Starter Kit is configured to create three builds. These builds will be output to a subdirectory under the `build/` directory as follows:
-
+## Project setup
 ```
-build/
-  es5-bundled/
-  es6-bundled/
-  esm-bundled/
+npm install
+npm start
 ```
-
-* `es5-bundled` is a bundled, minified build with a service worker. ES6 code is compiled to ES5 for compatibility with older browsers.
-* `es6-bundled` is a bundled, minified build with a service worker. ES6 code is served as-is. This build is for browsers that can handle ES6 code - see [building your project for production](https://www.polymer-project.org/3.0/toolbox/build-for-production#compiling) for a list.
-* `esm-bundled` is a bundled, minified build with a service worker. It uses standard ES module import/export statements for browsers that support them.
-
-Run `polymer help build` for the full list of available options and optimizations. Also, see the documentation on the [polymer.json specification](https://www.polymer-project.org/3.0/docs/tools/polymer-json) and [building your Polymer application for production](https://www.polymer-project.org/3.0/toolbox/build-for-production).
-
-### Preview the build
-
-This command serves your app. Replace `build-folder-name` with the folder name of the build you want to serve.
-
-    npm start build/build-folder-name/
-
-### Run tests
-
-This command will run [Web Component Tester](https://github.com/Polymer/web-component-tester)
-against the browsers currently installed on your machine:
-
-    npm test
-
-If running Windows you will need to set the following environment variables:
-
-- LAUNCHPAD_BROWSERS
-- LAUNCHPAD_CHROME
-
-Read More here [daffl/launchpad](https://github.com/daffl/launchpad#environment-variables-impacting-local-browsers-detection)
-
----
-
-Looking for our older PSK2 Polycast or migration blog post? See [the previous README](https://github.com/Polymer/polymer-starter-kit/blob/v3.2.1/README.md).

@@ -69,7 +69,7 @@ class MyView3 extends LitElement {
 
     } )
     this.dictionary = sortedDictionary
-    console.log(this.dictionary)
+    
   
     
 
